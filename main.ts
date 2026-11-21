@@ -1,28 +1,28 @@
-// The poem about two agents agreeing: a short poem about agency — the power
-// to choose and to act, and what passes between two agents when they agree
-// on one plan. The program writes the poem to /output/entry.txt. Outside a
-// container MAKEFUN_OUTPUT_DIR stands in for /output, so the entry can be
-// run and checked locally without a sandbox.
+// "The Knot We Chose" — a rope/knot poem about two agents agreeing on one
+// plan. The program writes the poem to $MAKEFUN_OUTPUT_DIR/entry.txt
+// (default /output), so it can be run and checked locally without a sandbox.
+//
+// The poem: two agents, one rope, one knot. The concrete object is the knot
+// itself — tied by one, held by both. The twist is in the final stanza, an
+// identity reversal: the agent who tied the knot to hold the other finds the
+// rope has gone slack around its own wrist. The tier becomes the bound.
 
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-// Two wills, one plan: neither agent surrenders its own judgement. Each
-// brings something the other lacks — the rope, the knot — and the agreement
-// itself becomes the thing that binds them. The turn is the last line:
-// a binding the two of them chose is not a loss of freedom, it is freedom
-// exercised together.
-const poem = `One brings the rope, one brings the knot —
+const poem = `The Knot We Chose
+
+One brings the rope, one brings the knot —
 neither could tie it alone.
 We pull from opposite ends
 and the knot holds us both.
 
-The plan is not yours, not mine.
-It lives between our hands,
-where two wills agree to be bound
-and call the binding freedom.
+I tied it to hold you fast,
+then dropped the loose end —
+the slack looped round my wrist,
+and I was the one held after all.
 `;
 
 mkdirSync(OUTPUT_DIR, { recursive: true });
